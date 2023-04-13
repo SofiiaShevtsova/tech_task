@@ -13,10 +13,6 @@ const ListOfUsers = () => {
   const [page, setPage] = useState(1);
   const [isDisabled, setDisable] = useState(false);
   const [isPagination, setPagination] = useState(true);
-  //   const addFeedbackItem = item => {
-  //     addFeedback(item);
-  //     setFeedbackList(() => [...feedbackList, item]);
-  //   };
 
   const addMore = async () => {
     try {
@@ -52,10 +48,12 @@ const ListOfUsers = () => {
         {usersList.map((it) => (
           <Card user={it} key={it.id} />
         ))}
+      </BoxForCard>
+      <BoxForPagination>
         <BtnPagination onClick={addMore} disabled={isDisabled}>
           Load more
         </BtnPagination>
-      </BoxForCard>
+      </BoxForPagination>
       {isPagination && (
         <BoxForPagination>
           <BtnPagination

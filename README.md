@@ -1,1 +1,3 @@
-# tech_task_goit
+<h1 align="center">Kартки твітів</h1>
+
+

@@ -31,6 +31,7 @@ export const BtnPagination = styled.button`
 
   &[disabled] {
   background-color: rgba(235, 216, 255, 1);
+  cursor: default;
   }
 `;
 
