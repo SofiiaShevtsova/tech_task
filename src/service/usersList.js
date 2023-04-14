@@ -1,10 +1,10 @@
 import axios from "axios";
 
-const { BASE_URL } = process.env;
+const { REACT_APP_BASE_URL } = process.env;
 
 export const getUsersList = async (page = 1, filter) => {
   
-  const url = new URL(BASE_URL);
+  const url = new URL(REACT_APP_BASE_URL);
   url.searchParams.append("page", page);
   url.searchParams.append("limit", 8);
   if (filter === 'follow') {
@@ -27,7 +27,7 @@ export const getUsersList = async (page = 1, filter) => {
 export const updateUser = async (id, data) => {
   try {
     await axios.put(
-      `${BASE_URL}/${id}`,
+      `${REACT_APP_BASE_URL}/${id}`,
       data
     );
   } catch (error) {}

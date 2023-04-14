@@ -1,11 +1,11 @@
 import axios from 'axios';
 console.log(process.env);
 
-const { API_KEY } = process.env;
+const { REACT_APP_API_KEY } = process.env;
 
 export const getImage = async (page) => {
   const options =
-    `key=${API_KEY}&min_height=1200&image_type=photo&orientation=horizontal&safesearch=true&per_page=8`;
+    `key=${REACT_APP_API_KEY}&min_height=1200&image_type=photo&orientation=horizontal&safesearch=true&per_page=8`;
   const baseUrl = 'https://pixabay.com/api/';
 
   try {
