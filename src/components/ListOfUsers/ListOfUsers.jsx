@@ -1,75 +1,57 @@
 import { useEffect, useState } from "react";
+import MyLoader from "../Loader/Loader";
 import Card from "../Card/Card";
+import { BoxForCard, BtnPagination, BoxForPagination } from "./styleUsersList";
 import { getUsersList } from "../../service/usersList";
-import {
-  BoxForCard,
-  BtnPagination,
-  BoxForPagination,
-  Page,
-} from "./styleUsersList";
 
-const ListOfUsers = () => {
+const ListOfUsers = ({ filter }) => {
   const [usersList, setUsersList] = useState([]);
   const [page, setPage] = useState(1);
-  const [isDisabled, setDisable] = useState(false);
-  const [isPagination, setPagination] = useState(true);
+  const [isDisabled, setDisable] = useState(true);
+  const [isLoading, setLoader] = useState(false);
 
   const addMore = async () => {
-    try {
-      setPage(page + 1);
-      const { data } = await getUsersList(page);
-      setUsersList((prev) => [...prev, ...data]);
-      if (data.length < 8) {
-        setDisable(true);
-      }
-      setPagination(false);
-    } catch (error) {}
+    const data = await getUsersList(page + 1, filter);
+    setUsersList((prev) => [...prev, ...data]);
+    if (data.length < 8) {
+      setDisable(false);
+    }
+    setPage(page + 1);
   };
 
   useEffect(() => {
     const getUsres = async () => {
-      try {
-        if (usersList.length > 8) {
-          return;
-        }
-        const { data } = await getUsersList(page);
-        setUsersList(() => [...data]);
-        if (data.length < 8) {
-          setDisable(true);
-        }
-      } catch (error) {}
+      setLoader(true);
+      const data = await getUsersList(1, filter);
+      setUsersList(() => [...data]);
+      setDisable(true);
+      setPage(1);
+      if (data.length < 8) {
+        setDisable(false);
+      }
+      setLoader(false);
     };
     getUsres();
-  }, [page, usersList.length]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [filter]);
 
   return (
     <>
-      <BoxForCard>
-        {usersList.map((it) => (
-          <Card user={it} key={it.id} />
-        ))}
-      </BoxForCard>
-      <BoxForPagination>
-        <BtnPagination onClick={addMore} disabled={isDisabled}>
-          Load more
-        </BtnPagination>
-      </BoxForPagination>
-      {isPagination && (
-        <BoxForPagination>
-          <BtnPagination
-            onClick={() => setPage((prev) => prev - 1)}
-            disabled={page === 1 ? true : false}
-          >
-            Prev
-          </BtnPagination>
-          <Page>{page}</Page>
-          <BtnPagination
-            onClick={() => setPage((prev) => prev + 1)}
-            disabled={isDisabled}
-          >
-            Next
-          </BtnPagination>
-        </BoxForPagination>
+      {isLoading ? (
+        <MyLoader />
+      ) : (
+        <>
+          <BoxForCard>
+            {usersList.map((it) => (
+              <Card user={it} key={it.id} />
+            ))}
+          </BoxForCard>
+          {isDisabled && (
+            <BoxForPagination>
+              <BtnPagination onClick={addMore}>Load more</BtnPagination>
+            </BoxForPagination>
+          )}
+        </>
       )}
     </>
   );

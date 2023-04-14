@@ -30,10 +30,10 @@ const Card = ({ user }) => {
       <BoxForUser>
         <Avatar src={user.avatar} alt="user avatar" />
         <Tweets> {user.tweets} tweets</Tweets>
-        <Followers>{styleFollowers(user.followers)}</Followers>
+        <Followers>{styleFollowers(user.followers)} following</Followers>
         <Button
           type="button"
-          colorBytton={isFollowing ? "rgba(92, 211, 168, 1)" : "#EBD8FF"}
+          colorButton={isFollowing ? "rgba(92, 211, 168, 1)" : "#EBD8FF"}
           onClick={onBtnClick}
         >
           {isFollowing ? "Following" : "Follow"}

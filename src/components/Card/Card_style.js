@@ -15,6 +15,7 @@ const cardsStyle = {
       rgba(75, 42, 153, 1) 75%
     );
     border-radius: 20px;
+    box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
   `,
   BoxForLogo: styled.div`
     height: 100%;
@@ -58,20 +59,25 @@ const cardsStyle = {
 };
 
 export const Button = styled.button`
-    width: 196px;
-    padding: 15px;
-    border-radius: 10px;
-    border: none;
-    margin-bottom: 36px;
-    background-color:${p => p.colorBytton};
+  width: 196px;
+  padding: 15px;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 36px;
+  background-color: ${(p) => p.colorButton};
 
-    font-family: "Montserrat";
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 22px;
+  font-family: "Montserrat";
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
 
-    text-transform: uppercase;
-    color: #373737;
-  `
+  text-transform: uppercase;
+  color: #373737;
+  transition: all 0.5s linear;
+  &:hover {
+    transform: scale(1.2);
+    color: blue;
+  }
+`;
 
 export default cardsStyle;
