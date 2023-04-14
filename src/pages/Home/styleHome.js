@@ -45,7 +45,7 @@ export const Select = styled.select`
 
 export const HomeMain = styled.div`
   width: 100%;
-  padding: 0 30px;
+  padding: 20px 30px;
   background-image: radial-gradient(
     circle,
     rgba(200, 255, 200, 1) 0%,
