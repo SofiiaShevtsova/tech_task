@@ -1,5 +1,4 @@
 import axios from 'axios';
-console.log(process.env);
 
 const { REACT_APP_API_KEY } = process.env;
 
