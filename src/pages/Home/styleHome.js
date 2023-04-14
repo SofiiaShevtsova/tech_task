@@ -67,7 +67,8 @@ export const ListOfImagesStyle = styled.ul`
   flex-wrap: wrap;
   align-items: stretch;
   justify-content: center;
-  gap: 50px;
+  row-gap: 50px;
+  column-gap: 30px;
   font-size: 28px;
 `;
 
