@@ -1,4 +1,5 @@
 import axios from 'axios';
+console.log(process.env);
 
 const { API_KEY } = process.env;
 
