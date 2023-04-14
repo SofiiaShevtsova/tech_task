@@ -45,7 +45,7 @@ export const Select = styled.select`
 
 export const HomeMain = styled.div`
   width: 100%;
-  padding: 40px;
+  padding: 0 30px;
   background-image: radial-gradient(
     circle,
     rgba(200, 255, 200, 1) 0%,
@@ -60,6 +60,7 @@ export const TextHome = styled.p`
   line-height: 24px;
   text-transform: uppercase;
   color: #373737;
+  margin-bottom: 20px;
 `;
 
 export const ListOfImagesStyle = styled.ul`
