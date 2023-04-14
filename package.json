@@ -2,6 +2,8 @@
   "name": "tech_task_goit",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://ubiquitous-duckanoo-01219c.netlify.app/",
+  "author": "Sofiia Shevtsova",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
