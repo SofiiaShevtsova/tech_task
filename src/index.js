@@ -9,7 +9,7 @@ import "modern-normalize/modern-normalize.css";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <BrowserRouter basename='https://ubiquitous-duckanoo-01219c.netlify.app/'>
+    <BrowserRouter>
       <App />
     </BrowserRouter>
   </React.StrictMode>
